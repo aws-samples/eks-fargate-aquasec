@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: yelb-secure
+  name: yelb-appserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yelb-appserver
+      tier: middletier
+  template:
+    metadata:
+      labels:
+        app: yelb-appserver
+        tier: middletier
+    spec:
+      containers:
+        - name: yelb-appserver
+          image: mreferre/yelb-appserver:0.5
+          ports:
+            - containerPort: 4567
+          command: ["./startup.sh"]

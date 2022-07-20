@@ -1,0 +1,32 @@
+# cluster.yaml
+# A cluster with one managed node and fargte profile
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: aquasec-fargatedemo
+  region: us-west-1
+
+vpc:
+  nat:
+    gateway: Single # other options: Disable, Single (default)
+
+
+managedNodeGroups:
+  - name: managed-ng-1
+    minSize: 1
+    maxSize: 2
+    desiredCapacity: 1
+    volumeSize: 20
+    privateNetworking: true
+    iam:
+      withAddonPolicies:
+        externalDNS: true
+        certManager: true
+
+fargateProfiles:
+  - name: yelb-secure
+    selectors:
+      # All workloads in the "yelb-secure" Kubernetes namespace will be
+      # scheduled onto Fargate:
+      - namespace: yelb-secure

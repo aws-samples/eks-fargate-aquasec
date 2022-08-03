@@ -13,10 +13,7 @@ This library is licensed under the MIT-0 License. See the [LICENSE](LICENSE) fil
 
 
 
-Be sure to:
 
-* Change the title in this README
-* Edit your repository description on GitHub
 
 ## Security
 

@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 # Install jq
@@ -17,8 +16,3 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
 chmod 700 get_helm.sh
 ./get_helm.sh
-
-# Install Aquactl for linux
-curl --output aquactl https://get.aquasec.com/aquactl/stable/aquactl 
-chmod +x aquactl
-./aquactl version
